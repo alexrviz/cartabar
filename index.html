@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@700;800&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde: #1F4A3A;
+    --verde-oscuro: #15352A;
+    --crema: #F6F1E4;
+    --crema-suave: #ECE4D0;
+    --laton: #C9974C;
+    --vino: #7A2E22;
+    --tinta: #2A2420;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: radial-gradient(circle at 50% 0%, var(--verde) 0%, var(--verde-oscuro) 85%);
+    color: var(--tinta);
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .franja-azulejo{
+    height: 28px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><rect width='40' height='40' fill='%231F4A3A'/><path d='M20 2 L26 14 L38 20 L26 26 L20 38 L14 26 L2 20 L14 14 Z' fill='none' stroke='%23F6F1E4' stroke-width='1.5'/><circle cx='20' cy='20' r='3' fill='%23C9974C'/></svg>");
+    background-repeat: repeat-x;
+    background-size: 40px 40px;
+  }
+
+  header.hero{
+    text-align: center;
+    padding: 3.25rem 1.25rem 3rem;
+  }
+
+  .ojo{
+    margin: 0 0 0.6rem;
+    color: var(--laton);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    opacity: 0;
+    animation: aparece 0.7s ease forwards;
+    animation-delay: 0.05s;
+  }
+
+  h1{
+    margin: 0;
+    font-family: 'Big Shoulders Stencil', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: clamp(3rem, 13vw, 5.5rem);
+    color: var(--crema);
+    line-height: 0.95;
+    opacity: 0;
+    animation: aparece 0.7s ease forwards;
+    animation-delay: 0.18s;
+  }
+
+  .sub{
+    margin: 0.85rem 0 0;
+    color: rgba(246,241,228,0.72);
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    animation: aparece 0.7s ease forwards;
+    animation-delay: 0.32s;
+  }
+
+  @keyframes aparece{
+    from{ opacity: 0; transform: translateY(10px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .ojo, h1, .sub{ animation: none; opacity: 1; }
+    html{ scroll-behavior: auto; }
+  }
+
+  main{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.75rem 1.25rem 1rem;
+  }
+
+  section.categoria{
+    background: var(--crema);
+    border-radius: 16px;
+    padding: 1.6rem 1.75rem 1.4rem;
+    margin-bottom: 1.75rem;
+    box-shadow: 0 14px 30px -14px rgba(0,0,0,0.45);
+  }
+
+  h2{
+    margin: 0 0 0.9rem;
+    font-family: 'Big Shoulders Stencil', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: clamp(1.5rem, 5vw, 1.9rem);
+    color: var(--vino);
+    border-bottom: 3px solid var(--laton);
+    display: inline-block;
+    padding-bottom: 0.2rem;
+  }
+
+  ul.platos{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li.plato{
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px dotted rgba(42,36,32,0.25);
+  }
+
+  li.plato:last-child{
+    border-bottom: none;
+  }
+
+  .nombre{
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .precio{
+    margin-left: auto;
+    flex-shrink: 0;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    color: var(--vino);
+    font-size: 0.98rem;
+    white-space: nowrap;
+  }
+
+  footer{
+    text-align: center;
+    padding: 1.5rem 1.25rem 2.5rem;
+    color: rgba(246,241,228,0.6);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+  }
+
+  footer p{
+    margin: 1.1rem 0 0;
+  }
+
+  @media (max-width: 420px){
+    .franja-azulejo{ height: 20px; background-size: 30px 30px; }
+    section.categoria{ padding: 1.3rem 1.25rem 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="franja-azulejo" aria-hidden="true"></div>
+
+<header class="hero">
+  <p class="ojo">Tapas · Raciones · Bocadillos</p>
+  <h1>Carta</h1>
+  <p class="sub">Cocina de barrio, de toda la vida</p>
+</header>
+
+<div class="franja-azulejo" aria-hidden="true"></div>
+
+<main>
+
+  <section class="categoria">
+    <h2>Entrantes</h2>
+    <ul class="platos">
+      <li class="plato"><span class="nombre">Patatas bravas</span><span class="precio">7,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Ensalada de la casa</span><span class="precio">8,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Croquetas caseras de pollo</span><span class="precio">9,50&nbsp;€</span></li>
+    </ul>
+  </section>
+
+  <section class="categoria">
+    <h2>Pescado</h2>
+    <ul class="platos">
+      <li class="plato"><span class="nombre">Pulpo al ajillo</span><span class="precio">11,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Boquerones al limón</span><span class="precio">11,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Pavía de bacalao</span><span class="precio">11,00&nbsp;€</span></li>
+    </ul>
+  </section>
+
+  <section class="categoria">
+    <h2>Carne</h2>
+    <ul class="platos">
+      <li class="plato"><span class="nombre">Solomillo a la plancha</span><span class="precio">16,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Lomo a la plancha</span><span class="precio">12,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Flamenquín</span><span class="precio">13,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Flamenquín de rabo de toro</span><span class="precio">16,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">San Jacobo</span><span class="precio">14,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">San Jacobo de ternera</span><span class="precio">15,00&nbsp;€</span></li>
+    </ul>
+  </section>
+
+  <section class="categoria">
+    <h2>Bocadillos</h2>
+    <ul class="platos">
+      <li class="plato"><span class="nombre">Lomo</span><span class="precio">4,50&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Serranito</span><span class="precio">5,70&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Serranito de pollo</span><span class="precio">6,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Pollo</span><span class="precio">5,40&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Bacon y queso</span><span class="precio">5,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Bacon, serrano y brava</span><span class="precio">6,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">Vegetal de atún</span><span class="precio">4,50&nbsp;€</span></li>
+    </ul>
+  </section>
+
+  <section class="categoria">
+    <h2>Salchichas</h2>
+    <ul class="platos">
+      <li class="plato"><span class="nombre">Perrito caliente</span><span class="precio">2,50&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">3 salchichas con patatas</span><span class="precio">5,00&nbsp;€</span></li>
+      <li class="plato"><span class="nombre">5 salchichas con patatas</span><span class="precio">6,00&nbsp;€</span></li>
+    </ul>
+  </section>
+
+  <section class="categoria">
+    <h2>Otros</h2>
+    <ul class="platos">
+      <li class="plato"><span class="nombre">Servicio de pan</span><span class="precio">0,60&nbsp;€</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<div class="franja-azulejo" aria-hidden="true"></div>
+
+<footer>
+  <p>Carta sujeta a cambios · Precios en euros, IVA incluido</p>
+</footer>
+
+</body>
+</html>
